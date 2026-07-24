@@ -180,15 +180,23 @@ Khi một bước trong pipeline lỗi, chương trình dừng ngay lập tức 
 
 ## 🚧 Trạng thái phát triển
 
-Project đang trong quá trình **tái cấu trúc (refactor)** từ tập hợp script rời rạc sang kiến trúc package chuẩn hóa tại `src/reup_tool/`. Tại thời điểm hiện tại:
+Hiện tại, project **đã hoàn thành phần lớn pipeline tạo Vietsub** và **đã có thể sử dụng trong thực tế** để xử lý video từ đầu đến cuối.
 
-- [x] `main.py` – orchestrator, quản lý pipeline, log và progress bar đã hoàn chỉnh
-- [x] `config/settings.json`, `prompts/translate_prompt.txt`, `scripts/setup_env.py` – đã hoàn chỉnh
-- [ ] `src/reup_tool/audio_converter.py` – đang khởi tạo, **chưa có logic xử lý**
-- [ ] `src/reup_tool/config.py`, `downloader.py`, `transcriber.py`, `translator.py`, `subtitle_formatter.py`, `dubber.py`, `video_merger.py` – **chưa được tạo**, cần triển khai để pipeline chạy được end-to-end
+### Đã hoàn thành
+- ✅ Tự động tải video.
+- ✅ Tách audio.
+- ✅ Nhận diện giọng nói (ASR).
+- ✅ Dịch sang tiếng Việt bằng AI.
+- ✅ Sinh phụ đề `.srt`.
+- ✅ Xuất video với Vietsub hoàn chỉnh.
 
-Logic tương ứng hiện vẫn tồn tại ở các phiên bản script cũ (`downloader.py`, `audio_to_text.py`, `translate_AI.py`, `translate_google.py`, `translate_AI_Selenium.py`, `convert_srt_to_subtitle_text.py`, `dub.py`, `merge_simple.py`) trong lịch sử commit đầu tiên, và cần được chuyển hóa dần vào package `src/reup_tool/` theo đúng interface mà `main.py` đang gọi (`process_all(single_file, progress_callback)`).
+Mặc dù pipeline đã hoạt động ổn định, vẫn còn một số hạn chế đang được cải thiện:
 
+- ⚠️ Giọng đọc AI đôi khi **nhanh hoặc chậm hơn** tốc độ nói của nhân vật trong video, khiến độ khớp chưa hoàn toàn tự nhiên.
+- ⚠️ Chưa hỗ trợ **tùy chỉnh phụ đề chi tiết**, chẳng hạn như font, màu sắc, viền, vị trí hiển thị và các thiết lập nâng cao khác.
+- ⚠️ Một số trường hợp đặc biệt (câu quá dài, hội thoại chồng lấn, nhiều người nói cùng lúc...) vẫn cần tiếp tục tối ưu.
+
+Project vẫn đang được phát triển và mình sẽ tiếp tục cải thiện các vấn đề trên trong thời gian sớm nhất để mang lại chất lượng phụ đề và lồng tiếng tốt hơn.
 ---
 
 ## ⚠️ Lưu ý về bản quyền
