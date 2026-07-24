@@ -195,7 +195,6 @@ Mặc dù pipeline đã hoạt động ổn định, vẫn còn một số hạn
 - ⚠️ Giọng đọc AI đôi khi **nhanh hoặc chậm hơn** tốc độ nói của nhân vật trong video, khiến độ khớp chưa hoàn toàn tự nhiên.
 - ⚠️ Chưa hỗ trợ **tùy chỉnh phụ đề chi tiết**, chẳng hạn như font, màu sắc, viền, vị trí hiển thị và các thiết lập nâng cao khác.
 - ⚠️ Một số trường hợp đặc biệt (câu quá dài, hội thoại chồng lấn, nhiều người nói cùng lúc...) vẫn cần tiếp tục tối ưu.
-
 Project vẫn đang được phát triển và mình sẽ tiếp tục cải thiện trong thời gian sớm nhất để mang lại chất lượng tốt hơn.
 ---
 
