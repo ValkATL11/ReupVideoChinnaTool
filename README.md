@@ -196,7 +196,7 @@ Mặc dù pipeline đã hoạt động ổn định, vẫn còn một số hạn
 - ⚠️ Chưa hỗ trợ **tùy chỉnh phụ đề chi tiết**, chẳng hạn như font, màu sắc, viền, vị trí hiển thị và các thiết lập nâng cao khác.
 - ⚠️ Một số trường hợp đặc biệt (câu quá dài, hội thoại chồng lấn, nhiều người nói cùng lúc...) vẫn cần tiếp tục tối ưu.
 
-Project vẫn đang được phát triển và mình sẽ tiếp tục cải thiện trong thời gian sớm nhất để mang lại chất lượng tốt hơn.
+Project vẫn đang được phát triển và sẽ sớm được cải thiện trong các bản cập nhật tiếp theo.
 ---
 
 ## ⚠️ Lưu ý về bản quyền
