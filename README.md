@@ -1,4 +1,4 @@
-# ReupToolV1
+# ReupVideoChinnaTool
 
 **Pipeline tự động hóa quy trình reup video (Douyin/TikTok → Video thuyết minh tiếng Việt)**
 
