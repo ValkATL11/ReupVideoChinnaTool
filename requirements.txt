@@ -1,0 +1,10 @@
+groq
+google-genai
+selenium
+webdriver-manager
+requests
+edge-tts
+pydub
+pysrt
+python-dotenv
+Pillow

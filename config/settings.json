@@ -1,0 +1,66 @@
+{
+  "downloader": {
+    "headless": true,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36"
+  },
+  "audio_converter": {
+    "headless": true,
+    "vbr_quality": 5
+  },
+  "transcriber": {
+    "language": "auto",
+    "model": "whisper-large-v3-turbo"
+  },
+  "translator": {
+    "engine": "gemini_selenium",
+    "headless": true,
+    "user_agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36",
+    "prompt_file": "prompts/translate_prompt.txt"
+  },
+  "dubber": {
+    "voice_male": "vi-VN-NamMinhNeural",
+    "voice_female": "vi-VN-HoaiMyNeural",
+    "voice": "female",
+    "speed": 1.5,
+    "output_format": "audio-24khz-48kbitrate-mono-mp3"
+  },
+  "video_merger": {
+    "original_volume": 0.3,
+    "new_volume": 0.9,
+    "fade_in_ms": 30,
+    "fade_out_ms": 30,
+    "subtitle": {
+      "font_name": "Cambria Bold",
+      "font_size": 28,
+      "primary_color": "&H05C8F7&",
+      "secondary_color": "&h0000FF",
+      "back_color": "&H0",
+      "border_style": 3,
+      "shadow": 0
+    },
+    "video": {
+      "codec": "libx264",
+      "pix_fmt": "yuv420p",
+      "frame_rate": 25,
+      "gop_size": 160,
+      "bitrate": "4000k",
+      "profile": "main",
+      "level": "3.1",
+      "preset": "superfast"
+    },
+    "audio": {
+      "codec": "libmp3lame",
+      "bitrate": "128k",
+      "sample_rate": 44100
+    },
+    "suffix": {
+      "srt_suffix": "_vi",
+      "video_ext": ".mp4",
+      "srt_ext": ".srt",
+      "audio_ext": ".mp3"
+    }
+  },
+  "logging": {
+    "level": "INFO"
+  }
+}

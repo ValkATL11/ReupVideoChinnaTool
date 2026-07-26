@@ -1,0 +1,34 @@
+# Environment variables
+.env
+*.env
+
+# Python cache & virtualenv
+__pycache__/
+*.py[cod]
+*$py.class
+.venv/
+venv/
+ENV/
+
+# Logs & Output
+logs/
+assets/original_video/*
+!assets/original_video/.gitkeep
+assets/original_audio/*
+!assets/original_audio/.gitkeep
+assets/original_srt/*
+!assets/original_srt/.gitkeep
+assets/translated_srt/*
+!assets/translated_srt/.gitkeep
+assets/subtitle_text/*
+!assets/subtitle_text/.gitkeep
+assets/dubbing/*
+!assets/dubbing/.gitkeep
+assets/output/*
+!assets/output/.gitkeep
+
+# IDE & OS files
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
