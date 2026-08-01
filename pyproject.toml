@@ -1,0 +1,102 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.backends._legacy:_Backend"
+
+[project]
+name = "reuptool-v3"
+version = "3.0.0"
+description = "Automated Video Dubbing & Processing Workstation"
+readme = "README.md"
+requires-python = ">=3.9"
+license = {text = "MIT"}
+
+authors = [
+    {name = "ReupTool Team"}
+]
+
+keywords = ["video", "dubbing", "translation", "subtitle", "tts", "whisper", "gemini"]
+
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: GUI",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+]
+
+dependencies = [
+    # GUI
+    "PySide6>=6.6.0",
+    
+    # Video/Audio Processing
+    "pydub>=0.25.1",
+    "ffmpeg-python>=0.2.0",
+    
+    # AI/ML
+    "groq>=0.4.0",
+    "google-genai>=0.1.0",
+    "edge-tts>=6.1.0",
+    
+    # Web/Downloads
+    "selenium>=4.15.0",
+    "webdriver-manager>=4.0.0",
+    "requests>=2.31.0",
+    
+    # Audio Processing
+    "numpy>=1.24.0",
+    "scipy>=1.11.0",
+    
+    # Utilities
+    "python-dotenv>=1.0.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.0.0",
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+quality = [
+    "ruff>=0.1.0",
+    "mypy>=1.0.0",
+    "pre-commit>=3.0.0",
+]
+
+[project.scripts]
+reuptool = "src.main:main"
+reuptool-cli = "src.main:main"
+
+[project.urls]
+Homepage = "https://github.com/ValkATL11/ReupTool"
+Repository = "https://github.com/ValkATL11/ReupTool"
+Issues = "https://github.com/ValkATL11/ReupTool/issues"
+
+[tool.setuptools.packages.find]
+where = ["."]
+include = ["src*", "tests*"]
+
+[tool.ruff]
+target-version = "py39"
+line-length = 120
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "I", "N", "UP", "B", "C4"]
+ignore = ["E501", "E741"]
+
+[tool.mypy]
+python_version = "3.9"
+warn_return_any = true
+warn_unused_configs = true
+disallow_untyped_defs = false
+
+[tool.pytest.ini_options]
+testpaths = ["src/tests"]
+python_files = ["test_*.py"]
+python_functions = ["test_*"]

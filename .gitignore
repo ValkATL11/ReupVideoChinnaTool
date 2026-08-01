@@ -1,0 +1,81 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual Environment
+venv/
+env/
+ENV/
+.venv
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Environment Secrets
+.env
+.env.local
+.env.*.local
+
+# Config (contains API keys at runtime — regenerated automatically)
+config/config.json
+
+# Data (user-generated runtime content — all ignored except .gitkeep)
+data/*
+!data/projects/
+data/projects/*
+!data/projects/.gitkeep
+projects/
+output/
+original_videos/
+original_audios/
+chunked_audio/
+transcriber_output/
+translated/
+dubbing/
+separated_audios/
+mixed_audios/
+voice_cache/
+temp_dubber/
+
+# Logs
+*.log
+app.log
+
+# macOS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Testing
+.pytest_cache/
+.coverage
+htmlcov/
+.tox/
+.nox/
+
+# Temporary files
+*.tmp
+*.temp
+tmp/
+temp/

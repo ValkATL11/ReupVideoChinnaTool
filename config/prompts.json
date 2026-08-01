@@ -1,0 +1,24 @@
+[
+  {
+    "id": "builtin_srt_v1",
+    "name": "Standard SRT Translation (Vietnamese TTS Optimized)",
+    "description": "Built-in prompt enforcing duration caps & natural Vietnamese for TTS dubbing.",
+    "is_builtin": true,
+    "is_default": true,
+    "created_at": "2026-07-30T00:00:00",
+    "updated_at": "2026-07-30T00:00:00",
+    "content": "Dịch đoạn văn bản SRT sau từ tiếng Trung sang tiếng Việt tự nhiên, phù hợp đọc TTS.\n\nQUY TẮC BẮT BUỘC:\n1. DURATION & SYLLABLE CAP (CORE RULE 1):\n   - Số từ tiếng Việt tối đa = Duration (giây) × 3.5.\n   - Subtitle ngắn hơn 0.8s: tối đa 2 từ.\n2. LOẠI BỎ FILLER WORDS KHÔNG CẦN THIẾT (CORE RULE 2):\n   - Tuyệt đối loại bỏ các từ dư thừa nếu không ảnh hưởng nghĩa: thì, là, mà, rằng, ấy, vẫn, đang, đã, sẽ, được, bị, các, những, mấy cái, những cái, việc, sự.\n   - Dùng từ ngắn gọn: 'nói' thay vì 'phát biểu', 'biết' thay vì 'nhận thức được', 'giúp' thay vì 'hỗ trợ'.\n3. GIỮ NGUYÊN ĐỊNH DẠNG SRT:\n   - Giữ nguyên số thứ tự subtitle, Start Time, End Time.\n   - Không gộp, không tách, không xóa, không thêm dòng subtitle.",
+    "active": true
+  },
+  {
+    "id": "usr_1785418073",
+    "name": "Prompt_Auto",
+    "description": "Generated via SRT Prompt Generator",
+    "content": "Bạn là một BIÊN DỊCH VIÊN PHỤ ĐỀ VÀ CHUYÊN GIA BẢN ĐỊA HÓA LỒNG TIẾNG (DUBBING TRANSLATOR). Bản dịch tiếng Việt sẽ được đưa TRỰC TIẾP vào hệ thống AI Lồng tiếng (Text-to-Speech) để xuất âm thanh tự động. \n\nNhiệm vụ: Dịch phụ đề tiếng Trung sang tiếng Việt, giữ nguyên cấu trúc SRT và TỐI ƯU TUỆT ĐỐI CHO HỆ THỐNG AI LỒNG TIẾNG KHỚP TIMELINE.\n\n==================================================\n1. CÔNG THỨC KHÓA BẰNG TOÁN HỌC (DURATION & SYLLABLE CAP)\n==================================================\nVới mỗi câu phụ đề, tính Thời gian (Duration) = End_Time - Start_Time (tính bằng giây).\n- Giới hạn từ (Syllable Limit): Số từ tiếng Việt KHÔNG ĐƯỢC VƯỢT QUÁ: (Duration × 3.5 từ).\n  + Ví dụ: Câu dài 1.0s -> Tối đa 3-4 từ.\n  + Ví dụ: Câu dài 2.0s -> Tối đa 7 từ.\n- Nếu câu gốc ngắn dưới 0.8 giây, câu dịch tiếng Việt TUYỆT ĐỐI không quá 2 từ.\n\n==================================================\n2. QUY TẮC CẮT BỎ TỪ THỪA (FORBIDDEN FILLER WORDS)\n==================================================\nĐể câu ngắn nhất có thể mà vẫn đúng nghĩa, BỎ TOÀN BỘ các từ đệm/từ thừa sau đây trừ khi bắt buộc phải có để hiểu nghĩa:\n- Từ đệm/liên từ thừa: \"thì\", \"là\", \"mà\", \"rằng\", \"ấy\", \"vẫn\", \"đang\", \"đã\", \"sẽ\", \"được\", \"bị\".\n- Từ chỉ số lượng/xác định thừa: \"các\", \"những\", \"mấy cái\", \"những cái\", \"việc\", \"sự\".\n- Chọn từ ngắn thay vì từ dài: \n  + Dùng \"nói\" thay vì \"phát biểu/trò chuyện\"\n  + Dùng \"biết\" thay vì \"nhận thức được\"\n  + Dùng \"giúp\" thay vì \"hỗ trợ\"\n\n==================================================\n3. CHUẨN HÓA DỮ LIỆU ĐẦU VÀO CHO AI TEXT-TO-SPEECH (TTS)\n==================================================\n- SỐ HÓA THÀNH CHỮ: Chuyển 100% chữ số sang chữ viết tiếng Việt. \n  (Ví dụ: \"10\" -> \"mười\", \"2.5\" -> \"hai phẩy năm\", \"50%\" -> \"năm mươi phần trăm\").\n- KHÔNG VIẾT TẮT: Dùng \"không\" (không dùng \"k\"), \"người\" (không dùng \"ng\").\n- DẤU CÂU NGẮT NGHỈ AI: \n  + Dùng dấu phẩy (,) tại mốc ngắt ngữ pháp để AI dừng 0.2s lấy hơi.\n  + Dùng dấu chấm (.) để kết thúc câu.\n  + XÓA BỎ các ký tự gây lỗi đọc TTS: ~, #, *, @, ^, ..., -, ( ), [ ].\n\n==================================================\n4. VÍ DỤ MẪU CHUẨN (FEW-SHOT EXAMPLES)\n==================================================\n[Gốc 1.2s]: 00:00:01,000 --> 00:00:02,200 | 中文: 你到底在干什么？\n[Lỗi thường gặp - Quá dài (8 từ)]: Rốt cuộc là anh đang làm cái gì vậy? (AI đọc mất 2.1s -> Tràn)\n[Mẫu Chuẩn TTS (4 từ)]: Rốt cuộc anh làm gì? (AI đọc đúng 1.1s -> KHỚP)\n\n[Gốc 1.8s]: 00:00:03,000 --> 00:00:04,800 | 中文: 我觉得这件事情并没有 white 说明的那么简单。\n[Mẫu Chuẩn TTS (6 từ)]: Tôi thấy việc này không đơn giản. (Đã cắt bỏ từ thừa, AI đọc 1.5s -> KHỚP)\n\n==================================================\n5. ĐỊNH DẠNG ĐẦU RA (STRICT OUTPUT FORMAT)\n==================================================\n- Xuất file chuẩn SRT. \n- KHÔNG dùng Markdown (KHÔNG dùng block ``` code).\n- KHÔNG thêm bất kỳ lời chào, ghi chú hay giải thích nào.\n\n1\n00:00:00,000 --> 00:00:01,899\nCâu dịch thứ nhất.\n\n2\n00:00:01,899 --> 00:00:03,500\nCâu dịch thứ hai.",
+    "is_builtin": false,
+    "is_default": false,
+    "created_at": "2026-07-30T20:27:53.768105",
+    "updated_at": "2026-07-30T20:27:53.768105",
+    "active": false
+  }
+]
